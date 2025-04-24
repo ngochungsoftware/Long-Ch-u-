@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng - Nhà Thuốc Long Châu</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="main-header">
+            <div class="container">
+                <a href="/" class="logo">
+                    <img src="images/logo.png" alt="Long Châu">
+                </a>
+                <div class="search-bar">
+                    <input type="text" placeholder="Giao hàng nhanh trong 2h">
+                    <i class="fas fa-microphone voice-search"></i>
+                    <i class="fas fa-camera camera-search"></i>
+                </div>
+                <div class="user-actions">
+                    <a href="/login">
+                        <i class="fas fa-user"></i>
+                        <span>Đăng nhập</span>
+                    </a>
+                    <a href="/pages/cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Giỏ hàng</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <div class="quick-links">
+                <a href="#" class="quick-link">Omega 3</a>
+                <a href="#" class="quick-link">Canxi</a>
+                <a href="#" class="quick-link">Thuốc nhỏ mắt</a>
+                <a href="#" class="quick-link">Dung dịch vệ sinh</a>
+                <a href="#" class="quick-link">Sữa rửa mặt</a>
+                <a href="#" class="quick-link">Kem</a>
+                <a href="#" class="quick-link">Men vi sinh</a>
+                <a href="#" class="quick-link">Siro ho</a>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Thực phẩm chức năng
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="submenu">
+                                <a href="#" class="submenu-item">
+                                    <i class="fas fa-capsules"></i>
+                                    Vitamin & Khoáng chất
+                                </a>
+                                <a href="#" class="submenu-item">
+                                    <i class="fas fa-seedling"></i>
+                                    Sinh lý - Nội tiết tố
+                                </a>
+                                <a href="#" class="submenu-item">
+                                    <i class="fas fa-heart"></i>
+                                    Sức khỏe tim mạch
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Dược mỹ phẩm
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Thuốc
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Chăm sóc cá nhân
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Thiết bị y tế
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Tiêm chủng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Bệnh & Góc sức khỏe
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Hệ thống nhà thuốc</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="cart-page">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html">Trang chủ</a> > Giỏ hàng
+            </div>
+            <div class="cart-container">
+                <div class="cart-main">
+                    <div class="cart-header">
+                        <label class="select-all">
+                            <input type="checkbox" onchange="selectAll(this)">
+                            <span>Chọn tất cả (2)</span>
+                        </label>
+                        <div class="header-columns">
+                            <span class="column-price">Giá thành</span>
+                            <span class="column-quantity">Số lượng</span>
+                            <span class="column-unit">Đơn vị</span>
+                        </div>
+                    </div>
+
+                    <div class="cart-items">
+                        <div class="cart-item">
+                            <div class="item-checkbox">
+                                <input type="checkbox" class="item-select" onchange="updateSelection()">
+                            </div>
+                            <img src="/images/products/1.webp" alt="Sản phẩm" class="item-image">
+                            <div class="item-info">
+                                <a href="#" class="item-name">Nước súc miệng Pearlie White Fluorinze Anti-bacterial
+                                    Fluoride 750ml chống lại vi khuẩn gây mảng bám sâu răng</a>
+                                <div class="item-price">
+                                    <span class="current-price">132.000đ</span>
+                                    <span class="original-price">165.000đ</span>
+                                </div>
+                                <div class="item-discount">
+                                    <span class="discount-tag">
+                                        <i class="fas fa-tag"></i>
+                                        Giảm ngay 20% áp dụng đến 30/04
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1" max="99"
+                                    onchange="updateItemTotal(this)">
+                                <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                            <div class="unit-select">
+                                <select>
+                                    <option>Chai</option>
+                                </select>
+                            </div>
+                            <button class="delete-btn" onclick="removeItem(this)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+
+                        <div class="cart-item">
+                            <div class="item-checkbox">
+                                <input type="checkbox" class="item-select" onchange="updateSelection()">
+                            </div>
+                            <img src="/images/products/2.webp" alt="Sản phẩm" class="item-image">
+                            <div class="item-info">
+                                <a href="#" class="item-name">Bột hòa tan Soki Deli cải thiện tình trạng biếng ăn, tăng
+                                    cường tiêu hóa và hấp thu (18 gói x 4g)</a>
+                                <div class="item-price">
+                                    <span class="current-price">360.000đ</span>
+                                </div>
+                            </div>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1" max="99"
+                                    onchange="updateItemTotal(this)">
+                                <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                            <div class="unit-select">
+                                <select>
+                                    <option>Hộp</option>
+                                </select>
+                            </div>
+                            <button class="delete-btn" onclick="removeItem(this)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-summary-wrapper">
+                    <div class="cart-summary">
+                        <div class="coupon-section">
+                            <button class="select-coupon-btn" onclick="openDiscountModal()">
+                                <i class="fas fa-ticket-alt"></i> Áp dụng ưu đãi để được giảm giá
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="summary-details">
+                            <div class="summary-row">
+                                <span class="summary-label">Tổng tiền</span>
+                                <span class="summary-value">525.000đ</span>
+                            </div>
+                            <div class="summary-row discount">
+                                <span class="summary-label">Giảm giá trực tiếp</span>
+                                <span class="discount-value">-33.000đ</span>
+                            </div>
+                            <div class="summary-row voucher">
+                                <span class="summary-label">Giảm giá voucher</span>
+                                <span class="voucher-value">0đ</span>
+                            </div>
+                            <div class="summary-row savings">
+                                <span class="summary-label">Tiết kiệm được</span>
+                                <span class="savings-value">33.000đ</span>
+                            </div>
+                            <div class="summary-row final-total">
+                                <span class="total-label">Thành tiền</span>
+                                <div class="total-amount">
+                                    <span class="original-total">525.000đ</span>
+                                    <span class="final-total-value">492.000đ</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="checkout-btn">Mua hàng</button>
+
+                        <div class="terms">
+                            Bằng việc tiến hành đặt mua hàng, bạn đồng ý với
+                            <a href="#">Điều khoản dịch vụ</a> và
+                            <a href="#">Chính sách xử lý dữ liệu cá nhân</a>
+                            của Nhà thuốc FPT Long Châu
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>Sản phẩm vừa xem</h1>
+            <section class="best-selling">
+                <div class="product-list">
+
+                    <a href="#" class="product-card">
+                        <span class="discount-badge">-20%</span>
+                        <img class="product-image" src="/images/products/5.webp" alt="Siro Brauer Baby">
+                        <div class="product-info">
+                            <h3 class="product-title">Siro Brauer Baby & Kids Liquid Zinc bổ sung kẽm, tăng sức đề...
+                            </h3>
+                            <div class="product-unit">Hộp</div>
+                            <div class="product-price">380.000đ</div>
+                            <div class="original-price">475.000đ</div>
+                        </div>
+                        <button class="btn-buy">Chọn mua</button>
+                    </a>
+                    <a href="#" class="product-card">
+                        <span class="discount-badge">-25%</span>
+                        <img class="product-image" src="/images/products/6.webp" alt="Thực phẩm bảo vệ sức khỏe">
+                        <div class="product-info">
+                            <h3 class="product-title">Thực phẩm bảo vệ sức khỏe MNM PQQ</h3>
+                            <div class="product-unit">Hộp 60 Viên</div>
+                            <div class="product-price">6.675.000đ</div>
+                            <div class="original-price">8.900.000đ</div>
+                        </div>
+                        <button class="btn-buy">Chọn mua</button>
+                    </a>
+                    <a href="#" class="product-card">
+                        <span class="discount-badge">-25%</span>
+                        <img class="product-image" src="/images/products/7.webp" alt="Thực phẩm bảo vệ sức khỏe">
+                        <div class="product-info">
+                            <h3 class="product-title">Thực phẩm bảo vệ sức khỏe MNM PQQ</h3>
+                            <div class="product-unit">Hộp 60 Viên</div>
+                            <div class="product-price">6.675.000đ</div>
+                            <div class="original-price">8.900.000đ</div>
+                        </div>
+                        <button class="btn-buy">Chọn mua</button>
+                    </a>
+
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Discount Modal -->
+    <div class="discount-modal" id="discountModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Chọn mã giảm giá</h3>
+                <button class="close-modal" onclick="closeDiscountModal()">&times;</button>
+            </div>
+            <div class="coupon-list">
+                <div class="coupon-item" onclick="selectCoupon(this, 'WELCOME20')">
+                    <div class="coupon-info">
+                        <div class="coupon-code">WELCOME20</div>
+                        <div class="coupon-desc">Giảm 20% cho đơn hàng đầu tiên</div>
+                    </div>
+                    <input type="radio" name="coupon" class="coupon-radio">
+                </div>
+                <div class="coupon-item" onclick="selectCoupon(this, 'HEALTH50')">
+                    <div class="coupon-info">
+                        <div class="coupon-code">HEALTH50</div>
+                        <div class="coupon-desc">Giảm 50.000đ cho đơn hàng từ 500.000đ</div>
+                    </div>
+                    <input type="radio" name="coupon" class="coupon-radio">
+                </div>
+                <div class="coupon-item" onclick="selectCoupon(this, 'FREESHIP')">
+                    <div class="coupon-info">
+                        <div class="coupon-code">FREESHIP</div>
+                        <div class="coupon-desc">Miễn phí vận chuyển cho đơn hàng từ 300.000đ</div>
+                    </div>
+                    <input type="radio" name="coupon" class="coupon-radio">
+                </div>
+            </div>
+            <button class="apply-coupon" onclick="applyCoupon()">Áp dụng</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Về chúng tôi</h3>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Hệ thống cửa hàng</a></li>
+                        <li><a href="#">Giấy phép kinh doanh</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Danh mục</h3>
+                    <ul>
+                        <li><a href="#">Thực phẩm chức năng</a></li>
+                        <li><a href="#">Dược mỹ phẩm</a></li>
+                        <li><a href="#">Thuốc</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Liên hệ</h3>
+                    <p>Tổng đài: 1800 6928</p>
+                    <p>Email: info@longchau.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nhà Thuốc Long Châu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function selectAll(checkbox) {
+            const itemCheckboxes = document.querySelectorAll('.item-select');
+            itemCheckboxes.forEach(item => {
+                item.checked = checkbox.checked;
+            });
+            updateSelection();
+        }
+
+        function updateSelection() {
+            const totalChecked = document.querySelectorAll('.item-select:checked').length;
+            const totalItems = document.querySelectorAll('.item-select').length;
+            document.querySelector('.select-all span').textContent = `Chọn tất cả (${totalChecked})`;
+            updateTotals();
+        }
+
+        function updateQuantity(btn, change) {
+            const input = btn.parentElement.querySelector('.quantity-input');
+            let value = parseInt(input.value) + change;
+
+            // Ensure value is within valid range
+            value = Math.max(1, Math.min(99, value));
+            input.value = value;
+
+            updateTotals();
+        }
+
+        function updateTotals() {
+            let subtotal = 0;
+            let discount = 0;
+            let savings = 0;
+
+            document.querySelectorAll('.cart-item').forEach(item => {
+                if (item.querySelector('.item-select').checked) {
+                    const priceText = item.querySelector('.current-price').textContent;
+                    const price = parseInt(priceText.replace(/\D/g, ''));
+                    const quantity = parseInt(item.querySelector('.quantity-input').value);
+
+                    const originalPriceElement = item.querySelector('.original-price');
+                    if (originalPriceElement) {
+                        const originalPrice = parseInt(originalPriceElement.textContent.replace(/\D/g, ''));
+                        discount += (originalPrice - price) * quantity;
+                        savings += (originalPrice - price) * quantity;
+                    }
+
+                    subtotal += price * quantity;
+                }
+            });
+
+            // Update summary values
+            document.querySelector('.summary-value').textContent = subtotal.toLocaleString('vi-VN') + 'đ';
+            document.querySelector('.discount-value').textContent = '-' + discount.toLocaleString('vi-VN') + 'đ';
+            document.querySelector('.savings-value').textContent = savings.toLocaleString('vi-VN') + 'đ';
+
+            const finalTotal = subtotal - discount;
+            document.querySelector('.original-total').textContent = (subtotal + savings).toLocaleString('vi-VN') + 'đ';
+            document.querySelector('.final-total-value').textContent = finalTotal.toLocaleString('vi-VN') + 'đ';
+        }
+
+        function removeItem(btn) {
+            if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
+                const cartItem = btn.closest('.cart-item');
+                cartItem.remove();
+                updateSelection();
+            }
+        }
+
+        function openDiscountModal() {
+            document.getElementById('discountModal').classList.add('active');
+        }
+
+        function closeDiscountModal() {
+            document.getElementById('discountModal').classList.remove('active');
+        }
+
+        function selectCoupon(element, code) {
+            // Remove selected class from all items
+            document.querySelectorAll('.coupon-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+
+            // Add selected class to clicked item
+            element.classList.add('selected');
+
+            // Check the radio button
+            element.querySelector('.coupon-radio').checked = true;
+        }
+
+        function applyCoupon() {
+            const selectedCoupon = document.querySelector('.coupon-item.selected');
+            if (selectedCoupon) {
+                const code = selectedCoupon.querySelector('.coupon-code').textContent;
+                const subtotal = parseInt(document.querySelector('.summary-value').textContent.replace(/\D/g, ''));
+                let discount = 0;
+
+                // Calculate discount based on coupon code
+                switch (code) {
+                    case 'WELCOME20':
+                        discount = Math.floor(subtotal * 0.2);
+                        break;
+                    case 'HEALTH50':
+                        if (subtotal >= 500000) {
+                            discount = 50000;
+                        }
+                        break;
+                    case 'FREESHIP':
+                        // Update shipping fee if implemented
+                        break;
+                }
+
+                // Update discount display
+                document.querySelector('.discount-value').textContent = '-' + discount.toLocaleString('vi-VN') + 'đ';
+
+                // Update total
+                const total = subtotal - discount;
+                document.querySelector('.total-value').textContent = total.toLocaleString('vi-VN') + 'đ';
+            }
+
+            closeDiscountModal();
+        }
+
+        // Initialize the cart
+        updateSelection();
+    </script>
+</body>
+
+</html>
