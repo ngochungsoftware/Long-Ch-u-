@@ -363,7 +363,7 @@ main {
     position: absolute;
     top: 8px;
     left: 8px;
-    background: #ff0000;
+    background: #ee2624;
     color: white;
     padding: 2px 8px;
     border-radius: 4px;
@@ -1533,8 +1533,8 @@ footer {
 .discount-tag {
     display: inline-flex;
     align-items: center;
-    background: #E6EFF7;
-    color: #0D5CB6;
+    background: #fff5f5;
+    color: #ee2624;
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 13px;
@@ -2912,8 +2912,8 @@ footer {
 }
 
 .discount-badge {
-    background: #f0f7ff;
-    color: #0d5cb6;
+    background: #ea4335;
+    color: white;
     padding: 8px 12px;
     border-radius: 4px;
     font-size: 13px;
