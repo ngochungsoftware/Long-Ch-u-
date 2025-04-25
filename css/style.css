@@ -2541,6 +2541,19 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+    .logo {
+        display: none !important;
+    }
+
+    .main-header .container {
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+
+    .user-actions {
+        margin-left: 0;
+    }
+
     .user-actions a span {
         display: none;
     }
