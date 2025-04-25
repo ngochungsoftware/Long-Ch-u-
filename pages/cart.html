@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giỏ hàng - Nhà Thuốc Long Châu</title>
+    <title>Nhà Thuốc Long Châu</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/images/banners/care-plus-pharmacy-logo_11109589.png!w700wp" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
@@ -13,9 +14,13 @@
     <header>
         <div class="main-header">
             <div class="container">
-                <a href="/" class="logo">
-                    <img src="images/logo.png" alt="Long Châu">
+                <a href="/" class="logo" style="display: block; text-align: center;">
+                    <img src="images/banners/logo_default_web_78584a5cc6.png" alt="Long Châu"
+                        style="width: 200px; height: auto; color: white;">
                 </a>
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <div class="search-bar">
                     <input type="text" placeholder="Giao hàng nhanh trong 2h">
                     <i class="fas fa-microphone voice-search"></i>
@@ -46,6 +51,9 @@
         </div>
         <nav class="main-nav">
             <div class="container">
+                <button class="mobile-menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
                 <ul class="nav-list">
                     <li class="nav-item">
                         <a href="#" class="nav-link">
@@ -115,7 +123,7 @@
         </div>
     </div>
     <main class="cart-page">
-       
+
         <div class="container">
             <div class="cart-container">
                 <div class="cart-main">
@@ -136,7 +144,7 @@
                             <div class="item-checkbox">
                                 <input type="checkbox" class="item-select" onchange="updateSelection()">
                             </div>
-                            <img src="/images/products/1.webp" alt="Sản phẩm" class="item-image">
+                            <img src="../images//products/1.webp" alt="Sản phẩm" class="item-image">
                             <div class="item-info">
                                 <a href="#" class="item-name">Nước súc miệng Pearlie White Fluorinze Anti-bacterial
                                     Fluoride 750ml chống lại vi khuẩn gây mảng bám sâu răng</a>
@@ -231,7 +239,8 @@
                             </div>
                         </div>
 
-                        <button class="checkout-btn">Mua hàng</button>
+                        <button onclick="window.location.href='/pages/checkout.html'" class="checkout-btn">
+                            Mua hàng</button>
 
                         <div class="terms">
                             Bằng việc tiến hành đặt mua hàng, bạn đồng ý với

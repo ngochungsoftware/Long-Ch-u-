@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,16 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/banners/care-plus-pharmacy-logo_11109589.png!w700wp" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/modal.css">
 </head>
+
 <body>
     <header>
         <div class="main-header">
             <div class="container">
                 <a href="/" class="logo" style="display: block; text-align: center;">
-                    <img src="images/banners/logo_default_web_78584a5cc6.png" alt="Long Châu" style="width: 200px; height: auto; color: white;">
+                    <img src="images/banners/logo_default_web_78584a5cc6.png" alt="Long Châu"
+                        style="width: 200px; height: auto; color: white;">
                 </a>
                 <button class="mobile-menu-toggle">
                     <i class="fas fa-bars"></i>
@@ -24,10 +28,46 @@
                     <i class="fas fa-camera camera-search"></i>
                 </div>
                 <div class="user-actions">
-                    <a href="#" onclick="openLoginModal(); return false;">
+                    <a href="#" class="auth-button" onclick="openLoginModal(); return false;">
                         <i class="fas fa-user"></i>
                         <span>Đăng nhập</span>
                     </a>
+                    <div class="user-menu" style="display: none;">
+                        <a href="#" class="auth-button" id="userMenuToggle" onclick="handleAuthClick(event)">
+                            <i class="fas fa-user"></i>
+                            <span id="userStatus">Đăng nhập</span>
+                        </a>
+                        <div class="user-menu-dropdown" id="userMenuDropdown">
+                            <a href="/pages/profile.html" class="user-menu-item">
+                                <i class="fas fa-user-circle"></i>
+                                Thông tin cá nhân
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-box"></i>
+                                Đơn hàng của tôi
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Sổ địa chỉ nhận hàng
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-syringe"></i>
+                                Lịch hẹn tiêm chủng
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-file-medical"></i>
+                                Đơn hàng tiêm chủng
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-prescription-bottle-alt"></i>
+                                Đơn thuốc của tôi
+                            </a>
+                            <a href="#" class="user-menu-item" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Đăng xuất
+                            </a>
+                        </div>
+                    </div>
                     <a href="/pages/cart.html" class="cart-icon">
                         <i class="fas fa-shopping-cart"></i>
                         <span>Giỏ hàng</span>
@@ -140,37 +180,43 @@
         <div class="container">
             <a href="#" class="service-item">
                 <div class="service-icon">
-                    <img src="https://cdn.nhathuoclongchau.com.vn/unsafe/40x0/filters:quality(90)/https://cms-prod.s3-sgn09.fptcloud.com/smalls/1_Can_Mua_Thuoc_48x48_a5fde193bc.png" alt="Cần mua thuốc">
+                    <img src="https://cdn.nhathuoclongchau.com.vn/unsafe/40x0/filters:quality(90)/https://cms-prod.s3-sgn09.fptcloud.com/smalls/1_Can_Mua_Thuoc_48x48_a5fde193bc.png"
+                        alt="Cần mua thuốc">
                 </div>
                 <h3 class="service-title">Cần mua thuốc</h3>
             </a>
             <a href="#" class="service-item">
                 <div class="service-icon">
-                    <img src="https://cdn.nhathuoclongchau.com.vn/unsafe/40x0/filters:quality(90)/https://cms-prod.s3-sgn09.fptcloud.com/smalls/tuvanvoiduocsi_1855320b40.png" alt="Tư vấn với Dược Sỹ">
+                    <img src="https://cdn.nhathuoclongchau.com.vn/unsafe/40x0/filters:quality(90)/https://cms-prod.s3-sgn09.fptcloud.com/smalls/tuvanvoiduocsi_1855320b40.png"
+                        alt="Tư vấn với Dược Sỹ">
                 </div>
                 <h3 class="service-title">Tư vấn với Dược Sỹ</h3>
             </a>
             <a href="#" class="service-item">
                 <div class="service-icon">
-                    <img src="https://cdn.nhathuoclongchau.com.vn/unsafe/40x0/filters:quality(90)/https://cms-prod.s3-sgn09.fptcloud.com/smalls/3_Tim_Nha_Thuoc_48x48_0f6815dfaa.png" alt="Tìm nhà thuốc">
+                    <img src="https://cdn.nhathuoclongchau.com.vn/unsafe/40x0/filters:quality(90)/https://cms-prod.s3-sgn09.fptcloud.com/smalls/3_Tim_Nha_Thuoc_48x48_0f6815dfaa.png"
+                        alt="Tìm nhà thuốc">
                 </div>
                 <h3 class="service-title">Tìm nhà thuốc</h3>
             </a>
             <a href="#" class="service-item">
                 <div class="service-icon">
-                    <img src="https://cdn.nhathuoclongchau.com.vn/unsafe/40x0/filters:quality(90)/https://cms-prod.s3-sgn09.fptcloud.com/smalls/4_Lich_Su_Don_Hang_48x48_0f0d6dd55f.png" alt="Đơn của tôi">
+                    <img src="https://cdn.nhathuoclongchau.com.vn/unsafe/40x0/filters:quality(90)/https://cms-prod.s3-sgn09.fptcloud.com/smalls/4_Lich_Su_Don_Hang_48x48_0f0d6dd55f.png"
+                        alt="Đơn của tôi">
                 </div>
                 <h3 class="service-title">Đơn của tôi</h3>
             </a>
             <a href="#" class="service-item">
                 <div class="service-icon">
-                    <img src="https://cdn.nhathuoclongchau.com.vn/unsafe/40x0/filters:quality(90)/https://cms-prod.s3-sgn09.fptcloud.com/smalls/5_Tiem_Vac_Xin_48x48_ca5f6b3aeb.png" alt="Tiêm Vắc xin">
+                    <img src="https://cdn.nhathuoclongchau.com.vn/unsafe/40x0/filters:quality(90)/https://cms-prod.s3-sgn09.fptcloud.com/smalls/5_Tiem_Vac_Xin_48x48_ca5f6b3aeb.png"
+                        alt="Tiêm Vắc xin">
                 </div>
                 <h3 class="service-title">Tiêm Vắc xin</h3>
             </a>
             <a href="#" class="service-item">
                 <div class="service-icon">
-                    <img src="https://cdn.nhathuoclongchau.com.vn/unsafe/40x0/filters:quality(90)/https://cms-prod.s3-sgn09.fptcloud.com/smalls/6_Kiem_Tra_Suc_Khoe_48x48_c28c2a24d5.png" alt="Kiểm tra sức khoẻ">
+                    <img src="https://cdn.nhathuoclongchau.com.vn/unsafe/40x0/filters:quality(90)/https://cms-prod.s3-sgn09.fptcloud.com/smalls/6_Kiem_Tra_Suc_Khoe_48x48_c28c2a24d5.png"
+                        alt="Kiểm tra sức khoẻ">
                 </div>
                 <h3 class="service-title">Kiểm tra sức khoẻ</h3>
             </a>
@@ -180,50 +226,35 @@
     <main>
         <div class="container">
 
-            <!-- <section class="categories">
-                <h2>Danh mục sản phẩm</h2>
-                <div class="category-grid">
-                    <div class="category-item">
-                        <img src="images/categories/thuc-pham-chuc-nang.jpg" alt="Thực phẩm chức năng">
-                        <h3>Thực phẩm chức năng</h3>
-                    </div>
-                    <div class="category-item">
-                        <img src="images/categories/duoc-my-pham.jpg" alt="Dược mỹ phẩm">
-                        <h3>Dược mỹ phẩm</h3>
-                    </div>
-                    <div class="category-item">
-                        <img src="images/categories/thuoc.jpg" alt="Thuốc">
-                        <h3>Thuốc</h3>
-                    </div>
-                </div>
-            </section> -->
 
             <section class="best-selling">
                 <h2>Sản phẩm bán chạy</h2>
                 <div class="product-list">
-                    <a href="#" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card">
                         <span class="discount-badge">-19.000đ</span>
                         <img class="product-image" src="/images/products/1.webp" alt="Hỗn dịch uống men vi sinh">
                         <div class="product-info">
-                            <h3 class="product-title">Hỗn dịch uống men vi sinh Enterogermina Gut Defense Sanofi tăng cường...</h3>
+                            <h3 class="product-title">Hỗn dịch uống men vi sinh Enterogermina Gut Defense Sanofi tăng
+                                cường...</h3>
                             <div class="product-unit">Hộp 2 Vỉ x 10 Ống</div>
                             <div class="product-price">165.000đ</div>
                             <div class="original-price">184.000đ</div>
                         </div>
                         <button class="btn-buy">Chọn mua</button>
                     </a>
-                    <a href="#" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card">
                         <span class="discount-badge">-20%</span>
                         <img class="product-image" src="/images/products/2.webp" alt="Nước súc miệng">
                         <div class="product-info">
-                            <h3 class="product-title">Nước súc miệng Pearlie White Fluorinze Anti-bacterial Fluoride...</h3>
+                            <h3 class="product-title">Nước súc miệng Pearlie White Fluorinze Anti-bacterial Fluoride...
+                            </h3>
                             <div class="product-unit">Chai</div>
                             <div class="product-price">132.000đ</div>
                             <div class="original-price">165.000đ</div>
                         </div>
                         <button class="btn-buy">Chọn mua</button>
                     </a>
-                    <a href="#" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card">
                         <span class="discount-badge">-20%</span>
                         <img class="product-image" src="/images/products/3.webp" alt="Viên uống Lutein">
                         <div class="product-info">
@@ -234,7 +265,7 @@
                         </div>
                         <button class="btn-buy">Chọn mua</button>
                     </a>
-                    <a href="#" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card">
                         <span class="discount-badge">-105.000đ</span>
                         <img class="product-image" src="/images/products/4.webp" alt="Máy xông khí dung">
                         <div class="product-info">
@@ -245,18 +276,19 @@
                         </div>
                         <button class="btn-buy">Chọn mua</button>
                     </a>
-                    <a href="#" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card">
                         <span class="discount-badge">-20%</span>
                         <img class="product-image" src="/images/products/5.webp" alt="Siro Brauer Baby">
                         <div class="product-info">
-                            <h3 class="product-title">Siro Brauer Baby & Kids Liquid Zinc bổ sung kẽm, tăng sức đề...</h3>
+                            <h3 class="product-title">Siro Brauer Baby & Kids Liquid Zinc bổ sung kẽm, tăng sức đề...
+                            </h3>
                             <div class="product-unit">Hộp</div>
                             <div class="product-price">380.000đ</div>
                             <div class="original-price">475.000đ</div>
                         </div>
                         <button class="btn-buy">Chọn mua</button>
                     </a>
-                    <a href="#" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card">
                         <span class="discount-badge">-25%</span>
                         <img class="product-image" src="/images/products/6.webp" alt="Thực phẩm bảo vệ sức khỏe">
                         <div class="product-info">
@@ -267,7 +299,7 @@
                         </div>
                         <button class="btn-buy">Chọn mua</button>
                     </a>
-                    <a href="#" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card">
                         <span class="discount-badge">-25%</span>
                         <img class="product-image" src="/images/products/7.webp" alt="Thực phẩm bảo vệ sức khỏe">
                         <div class="product-info">
@@ -278,7 +310,7 @@
                         </div>
                         <button class="btn-buy">Chọn mua</button>
                     </a>
-                    <a href="#" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card">
                         <span class="discount-badge">-25%</span>
                         <img class="product-image" src="/images/products/8.webp" alt="Thực phẩm bảo vệ sức khỏe">
                         <div class="product-info">
@@ -289,7 +321,7 @@
                         </div>
                         <button class="btn-buy">Chọn mua</button>
                     </a>
-                    <a href="#" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card">
                         <span class="discount-badge">-25%</span>
                         <img class="product-image" src="/images/products/9.webp" alt="Thực phẩm bảo vệ sức khỏe">
                         <div class="product-info">
@@ -345,29 +377,30 @@
 
     <script src="js/slideshow.js"></script>
 
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal">
+    <!-- Login/Register Modal -->
+    <div id="authModal" class="modal">
         <div class="modal-container">
             <div class="modal-header">
-                <h2 class="modal-title">Đăng nhập</h2>
-                <button class="modal-close" onclick="closeLoginModal()">
+                <h2 class="modal-title" id="modalTitle">Đăng nhập</h2>
+                <button class="modal-close" onclick="closeAuthModal()">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="modal-body">
-                <form class="login-form">
+                <form id="loginForm" class="auth-form">
                     <div class="form-group">
-                        <label for="phone">Số điện thoại</label>
+                        <label for="loginPhone">Số điện thoại</label>
                         <div class="input-group">
                             <span class="country-code">+84</span>
-                            <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại">
+                            <input type="tel" id="loginPhone" name="phone" placeholder="Nhập số điện thoại" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Mật khẩu</label>
+                        <label for="loginPassword">Mật khẩu</label>
                         <div class="input-group">
-                            <input type="password" id="password" name="password" placeholder="Nhập mật khẩu">
+                            <input type="password" id="loginPassword" name="password" placeholder="Nhập mật khẩu"
+                                required>
                             <button type="button" class="toggle-password">
                                 <i class="fas fa-eye"></i>
                             </button>
@@ -399,8 +432,66 @@
                     </div>
 
                     <div class="register-link">
-                        Bạn chưa có tài khoản? 
-                        <a href="/pages/register.html">Đăng ký ngay</a>
+                        Bạn chưa có tài khoản?
+                        <a href="#" onclick="switchToRegister(); return false;">Đăng ký ngay</a>
+                    </div>
+                </form>
+
+                <form id="registerForm" class="auth-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="registerName">Họ và tên</label>
+                        <input type="text" id="registerName" name="name" placeholder="Nhập họ và tên" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerPhone">Số điện thoại</label>
+                        <div class="input-group">
+                            <span class="country-code">+84</span>
+                            <input type="tel" id="registerPhone" name="phone" placeholder="Nhập số điện thoại" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerPassword">Mật khẩu</label>
+                        <div class="input-group">
+                            <input type="password" id="registerPassword" name="password" placeholder="Nhập mật khẩu"
+                                required>
+                            <button type="button" class="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerConfirmPassword">Xác nhận mật khẩu</label>
+                        <div class="input-group">
+                            <input type="password" id="registerConfirmPassword" name="confirmPassword"
+                                placeholder="Nhập lại mật khẩu" required>
+                            <button type="button" class="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="login-btn">Đăng ký</button>
+
+                    <div class="social-login">
+                        <p>Hoặc đăng ký bằng</p>
+                        <div class="social-buttons">
+                            <button type="button" class="social-btn facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                Facebook
+                            </button>
+                            <button type="button" class="social-btn google">
+                                <i class="fab fa-google"></i>
+                                Google
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="register-link">
+                        Đã có tài khoản?
+                        <a href="#" onclick="switchToLogin(); return false;">Đăng nhập</a>
                     </div>
                 </form>
             </div>
@@ -425,56 +516,142 @@
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (mainNav.classList.contains('active') && 
-                !e.target.closest('.main-nav') && 
+            if (mainNav.classList.contains('active') &&
+                !e.target.closest('.main-nav') &&
                 !e.target.closest('.mobile-menu-toggle')) {
                 mainNav.classList.remove('active');
                 document.body.style.overflow = '';
             }
         });
 
-        // Modal functions
-        function openLoginModal() {
-            const modal = document.getElementById('loginModal');
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+        // Auth modal functionality
+        const authModal = document.getElementById('authModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const userMenu = document.querySelector('.user-menu');
+        const loginButton = document.querySelector('.auth-button:not(#userMenuToggle)');
+        const userMenuToggle = document.getElementById('userMenuToggle');
+        const userMenuDropdown = document.getElementById('userMenuDropdown');
+        const userStatus = document.getElementById('userStatus');
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        // Handle auth button click
+        function handleAuthClick(e) {
+            e.preventDefault();
+            if (userStatus.textContent !== 'Đăng nhập') {
+                userMenuDropdown.classList.toggle('active');
+            } else {
+                openLoginModal();
+            }
         }
 
-        function closeLoginModal() {
-            const modal = document.getElementById('loginModal');
-            modal.classList.remove('active');
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.user-menu')) {
+                userMenuDropdown.classList.remove('active');
+            }
+        });
+
+        function openLoginModal() {
+            authModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            switchToLogin();
+        }
+
+        function closeAuthModal() {
+            authModal.classList.remove('active');
             document.body.style.overflow = '';
         }
 
+        function switchToLogin() {
+            modalTitle.textContent = 'Đăng nhập';
+            loginForm.style.display = 'block';
+            registerForm.style.display = 'none';
+        }
+
+        function switchToRegister() {
+            modalTitle.textContent = 'Đăng ký';
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'block';
+        }
+
         // Close modal when clicking outside
-        document.getElementById('loginModal').addEventListener('click', function(event) {
+        authModal.addEventListener('click', function (event) {
             if (event.target === this) {
-                closeLoginModal();
+                closeAuthModal();
             }
         });
 
         // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
+        document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') {
-                closeLoginModal();
+                closeAuthModal();
             }
         });
 
         // Toggle password visibility
-        document.querySelector('.toggle-password').addEventListener('click', function() {
-            const passwordInput = document.getElementById('password');
-            const icon = this.querySelector('i');
-            
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-            } else {
-                passwordInput.type = 'password';
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
+        document.querySelectorAll('.toggle-password').forEach(button => {
+            button.addEventListener('click', function () {
+                const input = this.previousElementSibling;
+                const icon = this.querySelector('i');
+
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        });
+
+        // Form submission
+        loginForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const phone = document.getElementById('loginPhone').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Simulate successful login
+            userStatus.textContent = 'Lê Ngọc Hưng';
+            loginButton.style.display = 'none';
+            userMenu.style.display = 'block';
+            userMenuToggle.classList.add('logged-in');
+            closeAuthModal();
+        });
+
+        registerForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('registerName').value;
+            const phone = document.getElementById('registerPhone').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('registerConfirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Mật khẩu xác nhận không khớp!');
+                return;
             }
+
+            // Simulate successful registration
+            userStatus.textContent = name;
+            loginButton.style.display = 'none';
+            userMenu.style.display = 'block';
+            userMenuToggle.classList.add('logged-in');
+            closeAuthModal();
+        });
+
+        // Logout functionality
+        logoutBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            userStatus.textContent = 'Đăng nhập';
+            loginButton.style.display = 'block';
+            userMenu.style.display = 'none';
+            userMenuToggle.classList.remove('logged-in');
+            userMenuDropdown.classList.remove('active');
         });
     </script>
 </body>
-</html> 
+
+</html>

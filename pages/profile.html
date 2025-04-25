@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhà Thuốc Long Châu</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="/images/banners/care-plus-pharmacy-logo_11109589.png!w700wp" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+
+<body>
+    <header>
+        <div class="main-header">
+            <div class="container">
+                <a href="/" class="logo" style="display: block; text-align: center;">
+                    <img src="images/banners/logo_default_web_78584a5cc6.png" alt="Long Châu"
+                        style="width: 200px; height: auto; color: white;">
+                </a>
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-bar">
+                    <input type="text" placeholder="Giao hàng nhanh trong 2h">
+                    <i class="fas fa-microphone voice-search"></i>
+                    <i class="fas fa-camera camera-search"></i>
+                </div>
+                <div class="user-actions">
+                    <a href="#" class="auth-button" onclick="openLoginModal(); return false;">
+                        <i class="fas fa-user"></i>
+                        <span>Đăng nhập</span>
+                    </a>
+                    <div class="user-menu" style="display: none;">
+                        <a href="#" class="auth-button" id="userMenuToggle" onclick="handleAuthClick(event)">
+                            <i class="fas fa-user"></i>
+                            <span id="userStatus">Đăng nhập</span>
+                        </a>
+                        <div class="user-menu-dropdown" id="userMenuDropdown">
+                            <a href="/pages/profile.html" class="user-menu-item">
+                                <i class="fas fa-user-circle"></i>
+                                Thông tin cá nhân
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-box"></i>
+                                Đơn hàng của tôi
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Sổ địa chỉ nhận hàng
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-syringe"></i>
+                                Lịch hẹn tiêm chủng
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-file-medical"></i>
+                                Đơn hàng tiêm chủng
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-prescription-bottle-alt"></i>
+                                Đơn thuốc của tôi
+                            </a>
+                            <a href="#" class="user-menu-item" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Đăng xuất
+                            </a>
+                        </div>
+                    </div>
+                    <a href="/pages/cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Giỏ hàng</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <div class="quick-links">
+                <a href="#" class="quick-link">Omega 3</a>
+                <a href="#" class="quick-link">Canxi</a>
+                <a href="#" class="quick-link">Thuốc nhỏ mắt</a>
+                <a href="#" class="quick-link">Dung dịch vệ sinh</a>
+                <a href="#" class="quick-link">Sữa rửa mặt</a>
+                <a href="#" class="quick-link">Kem</a>
+                <a href="#" class="quick-link">Men vi sinh</a>
+                <a href="#" class="quick-link">Siro ho</a>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <button class="mobile-menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Thực phẩm chức năng
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="submenu">
+                                <a href="/pages/about.html" class="submenu-item">
+                                    <i class="fas fa-capsules"></i>
+                                    Giới thiệu
+                                </a>
+                                <a href="/pages/articles.html" class="submenu-item">
+                                    <i class="fas fa-seedling"></i>
+                                    Bài viết
+                                </a>
+                                <a href="/pages/login-fpt.html" class="submenu-item">
+                                    <i class="fas fa-heart"></i>
+                                    Đăng nhập - Đăng ký
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/pages/about.html" class="nav-link">
+                            Dược mỹ phẩm
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/pages/articles.html" class="nav-link">
+                            Thuốc
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Chăm sóc cá nhân
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Thiết bị y tế
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Tiêm chủng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Bệnh & Góc sức khỏe
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Hệ thống nhà thuốc</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="/">Trang chủ</a> / <span>Thông tin cá nhân</span>
+        </div>
+    </div>
+    <div class="profile-container">
+        
+        <div class="container">
+            <div class="profile-sidebar">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="user-details">
+                        <h3>Lê Ngọc Hưng</h3>
+                        <p>+84 123456789</p>
+                    </div>
+                </div>
+                <nav class="profile-nav">
+                    <a href="#" class="nav-item active">
+                        <i class="fas fa-user"></i>
+                        Thông tin cá nhân
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-box"></i>
+                        Đơn hàng của tôi
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sổ địa chỉ nhận hàng
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-syringe"></i>
+                        Lịch hẹn tiêm chủng
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-file-medical"></i>
+                        Đơn hàng tiêm chủng
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-prescription-bottle-alt"></i>
+                        Đơn thuốc của tôi
+                    </a>
+                </nav>
+            </div>
+            <div class="profile-content">
+                <div class="content-header">
+                    <h2>Thông tin cá nhân</h2>
+                    <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
+                </div>
+                <div class="profile-form">
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label>Họ và tên</label>
+                            <input type="text" value="Lê Ngọc Hưng" placeholder="Nhập họ và tên">
+                        </div>
+                        <div class="form-group">
+                            <label>Số điện thoại</label>
+                            <div class="phone-input">
+                                <span class="country-code">+84</span>
+                                <input type="tel" value="123456789" disabled>
+                            </div>
+                            <a href="#" class="change-phone">Thay đổi</a>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" value="example@email.com" placeholder="Nhập email">
+                        </div>
+                        <div class="form-group">
+                            <label>Ngày sinh</label>
+                            <input type="date" value="2000-01-01">
+                        </div>
+                        <div class="form-group">
+                            <label>Giới tính</label>
+                            <div class="radio-group">
+                                <label class="radio">
+                                    <input type="radio" name="gender" value="male" checked>
+                                    <span>Nam</span>
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" name="gender" value="female">
+                                    <span>Nữ</span>
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" name="gender" value="other">
+                                    <span>Khác</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="save-btn">Lưu thay đổi</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Về chúng tôi</h3>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Hệ thống cửa hàng</a></li>
+                        <li><a href="#">Giấy phép kinh doanh</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Danh mục</h3>
+                    <ul>
+                        <li><a href="#">Thực phẩm chức năng</a></li>
+                        <li><a href="#">Dược mỹ phẩm</a></li>
+                        <li><a href="#">Thuốc</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Liên hệ</h3>
+                    <p>Tổng đài: 1800 6928</p>
+                    <p>Email: info@longchau.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nhà Thuốc Long Châu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('profileForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            // Xử lý lưu thông tin
+            alert('Đã lưu thông tin thành công!');
+        });
+    </script>
+</body>
+
+</html>

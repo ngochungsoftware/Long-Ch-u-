@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhà Thuốc Long Châu</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../images/banners/care-plus-pharmacy-logo_11109589.png!w700wp" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+
+<body>
+    <header>
+        <div class="main-header">
+            <div class="container">
+                <a href="/" class="logo" style="display: block; text-align: center;">
+                    <img src="images/banners/logo_default_web_78584a5cc6.png" alt="Long Châu"
+                        style="width: 200px; height: auto; color: white;">
+                </a>
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-bar">
+                    <input type="text" placeholder="Giao hàng nhanh trong 2h">
+                    <i class="fas fa-microphone voice-search"></i>
+                    <i class="fas fa-camera camera-search"></i>
+                </div>
+                <div class="user-actions">
+                    <a href="#" class="auth-button" onclick="openLoginModal(); return false;">
+                        <i class="fas fa-user"></i>
+                        <span>Đăng nhập</span>
+                    </a>
+                    <div class="user-menu" style="display: none;">
+                        <a href="#" class="auth-button" id="userMenuToggle" onclick="handleAuthClick(event)">
+                            <i class="fas fa-user"></i>
+                            <span id="userStatus">Đăng nhập</span>
+                        </a>
+                        <div class="user-menu-dropdown" id="userMenuDropdown">
+                            <a href="/pages/profile.html" class="user-menu-item">
+                                <i class="fas fa-user-circle"></i>
+                                Thông tin cá nhân
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-box"></i>
+                                Đơn hàng của tôi
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Sổ địa chỉ nhận hàng
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-syringe"></i>
+                                Lịch hẹn tiêm chủng
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-file-medical"></i>
+                                Đơn hàng tiêm chủng
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-prescription-bottle-alt"></i>
+                                Đơn thuốc của tôi
+                            </a>
+                            <a href="#" class="user-menu-item" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Đăng xuất
+                            </a>
+                        </div>
+                    </div>
+                    <a href="/pages/cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Giỏ hàng</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <div class="quick-links">
+                <a href="#" class="quick-link">Omega 3</a>
+                <a href="#" class="quick-link">Canxi</a>
+                <a href="#" class="quick-link">Thuốc nhỏ mắt</a>
+                <a href="#" class="quick-link">Dung dịch vệ sinh</a>
+                <a href="#" class="quick-link">Sữa rửa mặt</a>
+                <a href="#" class="quick-link">Kem</a>
+                <a href="#" class="quick-link">Men vi sinh</a>
+                <a href="#" class="quick-link">Siro ho</a>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <button class="mobile-menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Thực phẩm chức năng
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="submenu">
+                                <a href="/pages/about.html" class="submenu-item">
+                                    <i class="fas fa-capsules"></i>
+                                    Giới thiệu
+                                </a>
+                                <a href="/pages/articles.html" class="submenu-item">
+                                    <i class="fas fa-seedling"></i>
+                                    Bài viết
+                                </a>
+                                <a href="/pages/login-fpt.html" class="submenu-item">
+                                    <i class="fas fa-heart"></i>
+                                    Đăng nhập - Đăng ký
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/pages/about.html" class="nav-link">
+                            Dược mỹ phẩm
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/pages/articles.html" class="nav-link">
+                            Thuốc
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Chăm sóc cá nhân
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Thiết bị y tế
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Tiêm chủng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Bệnh & Góc sức khỏe
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Hệ thống nhà thuốc</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="checkout-container">
+        <div class="container">
+            <div class="container">
+                <a href="/cart" class="back-link">
+                    <i class="fas fa-chevron-left"></i>
+                    Quay lại giỏ hàng
+                </a>
+            </div>
+            <div class="checkout-content">
+                <div class="checkout-main">
+                    <h2>Danh sách sản phẩm</h2>
+                    <div class="order-items">
+                        <div class="item-list">
+                            <div class="order-item">
+                                <div class="item-image">
+                                    <img src="/images/products/product1.webp" alt="Product">
+                                </div>
+                                <div class="item-info">
+                                    <h3 class="item-name">Hỗn dịch uống men vi sinh Enterogermina Gut Defense Sanofi
+                                        tăng cường tiêu hóa, hỗ trợ bảo vệ đường ruột</h3>
+                                    <div class="item-details">
+                                        <div class="item-price">
+                                            <span class="current-price">165.000đ</span>
+                                            <span class="original-price">184.000đ</span>
+                                        </div>
+                                        <div class="item-quantity">x1 Hộp</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="delivery-method">
+                        <h3>Chọn hình thức nhận hàng</h3>
+                        <div class="method-options">
+                            <button class="method-option active">Giao hàng tận nơi</button>
+                            <button class="method-option">Nhận tại nhà thuốc</button>
+                        </div>
+                    </div>
+
+                    <div class="customer-info">
+                        <h3>Thông tin người đặt</h3>
+                        <div class="form-group">
+                            <input type="text" placeholder="Họ và tên người đặt" class="form-input">
+                            <input type="tel" placeholder="Số điện thoại" class="form-input">
+                            <input type="email" placeholder="Email (không bắt buộc)" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="shipping-info">
+                        <h3>Địa chỉ nhận hàng</h3>
+                        <div class="form-group">
+                            <input type="text" placeholder="Họ và tên người nhận" class="form-input">
+                            <input type="tel" placeholder="Số điện thoại" class="form-input">
+                            <div class="select-group">
+                                <select class="form-select">
+                                    <option>Chọn tỉnh/thành phố</option>
+                                </select>
+                                <select class="form-select">
+                                    <option>Chọn quận/huyện</option>
+                                </select>
+                                <select class="form-select">
+                                    <option>Chọn phường/xã</option>
+                                </select>
+                            </div>
+                            <input type="text" placeholder="Nhập địa chỉ cụ thể" class="form-input">
+                            <textarea
+                                placeholder="Ghi chú (không bắt buộc)&#10;Ví dụ: Hãy gọi cho tôi 15 phút trước khi giao"
+                                class="form-textarea"></textarea>
+                        </div>
+                        <div class="invoice-request">
+                            <label class="toggle">
+                                <span class="label">Yêu cầu xuất hóa đơn điện tử</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="payment-methods">
+                        <h3>Chọn phương thức thanh toán</h3>
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="cash">
+                                <span class="payment-radio"></span>
+                                <img src="../images/payment/cash.png" alt="Tiền mặt">
+                                <span class="payment-label">Thanh toán tiền mặt khi nhận hàng</span>
+                            </label>
+
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="qr">
+                                <span class="payment-radio"></span>
+                                <img src="../images/payment/qr-code.png" alt="QR Code">
+                                <span class="payment-label">Thanh toán bằng chuyển khoản (QR Code)</span>
+                            </label>
+
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="bank">
+                                <span class="payment-radio"></span>
+                                <img src="../images/payment/bank.png" alt="ATM">
+                                <span class="payment-label">Thanh toán bằng thẻ ATM nội địa và tài khoản ngân hàng</span>
+                            </label>
+
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="credit-card">
+                                <span class="payment-radio"></span>
+                                <img src="../images/payment/credit-card.png" alt="Credit Card">
+                                <span class="payment-label">Thanh toán bằng thẻ quốc tế Visa, Master, JCB, AMEX (GooglePay, ApplePay)</span>
+                            </label>
+
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="zalopay">
+                                <span class="payment-radio"></span>
+                                <img src="../images/payment/zalopay.png" alt="ZaloPay">
+                                <span class="payment-label">Thanh toán bằng ví ZaloPay</span>
+                            </label>
+
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="momo">
+                                <span class="payment-radio"></span>
+                                <img src="../images/payment/momo.png" alt="MoMo">
+                                <span class="payment-label">Thanh toán bằng ví MoMo</span>
+                            </label>
+
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="vnpay">
+                                <span class="payment-radio"></span>
+                                <img src="../images/payment/vnpay.png" alt="VNPay">
+                                <span class="payment-label">Thanh toán bằng VNPay</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-sidebar">
+                    <div class="order-summary">
+                        <a href="#" class="promo-link">
+                            <div class="promo-content">
+                                <i class="fas fa-tag"></i>
+                                <span>Áp dụng ưu đãi để được giảm giá</span>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                        <div class="summary-details">
+                            <div class="summary-row">
+                                <span>Tổng tiền</span>
+                                <span class="amount">184.000đ</span>
+                            </div>
+                            <div class="summary-row discount">
+                                <span>Giảm giá trực tiếp</span>
+                                <span class="amount negative">-19.000đ</span>
+                            </div>
+                            <div class="summary-row voucher">
+                                <span>Giảm giá voucher <i class="fas fa-info-circle"></i></span>
+                                <span class="amount">0đ</span>
+                            </div>
+                            <div class="summary-row savings">
+                                <span>Tiết kiệm được</span>
+                                <span class="amount highlight">19.000đ</span>
+                            </div>
+                            <div class="summary-row shipping">
+                                <span>Phí vận chuyển</span>
+                                <span class="free-shipping">Miễn phí</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Thanh toán</span>
+                                <div class="total-amount">
+                                    <span class="original">184.000đ</span>
+                                    <span class="final">165.000đ</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="checkout-btn">Hoàn tất</button>
+                        <p class="terms">
+                            Bằng việc tiến hành đặt mua hàng, bạn đồng ý với
+                            <a href="#">Điều khoản dịch vụ</a> và
+                            <a href="#">Chính sách xử lý dữ liệu cá nhân</a>
+                            của Nhà thuốc FPT Long Châu
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Về chúng tôi</h3>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Hệ thống cửa hàng</a></li>
+                        <li><a href="#">Giấy phép kinh doanh</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Danh mục</h3>
+                    <ul>
+                        <li><a href="#">Thực phẩm chức năng</a></li>
+                        <li><a href="#">Dược mỹ phẩm</a></li>
+                        <li><a href="#">Thuốc</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Liên hệ</h3>
+                    <p>Tổng đài: 1800 6928</p>
+                    <p>Email: info@longchau.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nhà Thuốc Long Châu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

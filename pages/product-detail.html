@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhà Thuốc Long Châu</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../images/banners/care-plus-pharmacy-logo_11109589.png!w700wp" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+
+<body>
+    <header>
+        <div class="main-header">
+            <div class="container">
+                <a href="/" class="logo" style="display: block; text-align: center;">
+                    <img src="images/banners/logo_default_web_78584a5cc6.png" alt="Long Châu"
+                        style="width: 200px; height: auto; color: white;">
+                </a>
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-bar">
+                    <input type="text" placeholder="Giao hàng nhanh trong 2h">
+                    <i class="fas fa-microphone voice-search"></i>
+                    <i class="fas fa-camera camera-search"></i>
+                </div>
+                <div class="user-actions">
+                    <a href="#" class="auth-button" onclick="openLoginModal(); return false;">
+                        <i class="fas fa-user"></i>
+                        <span>Đăng nhập</span>
+                    </a>
+                    <div class="user-menu" style="display: none;">
+                        <a href="#" class="auth-button" id="userMenuToggle" onclick="handleAuthClick(event)">
+                            <i class="fas fa-user"></i>
+                            <span id="userStatus">Đăng nhập</span>
+                        </a>
+                        <div class="user-menu-dropdown" id="userMenuDropdown">
+                            <a href="/pages/profile.html" class="user-menu-item">
+                                <i class="fas fa-user-circle"></i>
+                                Thông tin cá nhân
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-box"></i>
+                                Đơn hàng của tôi
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Sổ địa chỉ nhận hàng
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-syringe"></i>
+                                Lịch hẹn tiêm chủng
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-file-medical"></i>
+                                Đơn hàng tiêm chủng
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-prescription-bottle-alt"></i>
+                                Đơn thuốc của tôi
+                            </a>
+                            <a href="#" class="user-menu-item" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Đăng xuất
+                            </a>
+                        </div>
+                    </div>
+                    <a href="/pages/cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Giỏ hàng</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <div class="quick-links">
+                <a href="#" class="quick-link">Omega 3</a>
+                <a href="#" class="quick-link">Canxi</a>
+                <a href="#" class="quick-link">Thuốc nhỏ mắt</a>
+                <a href="#" class="quick-link">Dung dịch vệ sinh</a>
+                <a href="#" class="quick-link">Sữa rửa mặt</a>
+                <a href="#" class="quick-link">Kem</a>
+                <a href="#" class="quick-link">Men vi sinh</a>
+                <a href="#" class="quick-link">Siro ho</a>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <button class="mobile-menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Thực phẩm chức năng
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="submenu">
+                                <a href="/pages/about.html" class="submenu-item">
+                                    <i class="fas fa-capsules"></i>
+                                    Giới thiệu
+                                </a>
+                                <a href="/pages/articles.html" class="submenu-item">
+                                    <i class="fas fa-seedling"></i>
+                                    Bài viết
+                                </a>
+                                <a href="/pages/login-fpt.html" class="submenu-item">
+                                    <i class="fas fa-heart"></i>
+                                    Đăng nhập - Đăng ký
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/pages/about.html" class="nav-link">
+                            Dược mỹ phẩm
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/pages/articles.html" class="nav-link">
+                            Thuốc
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Chăm sóc cá nhân
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Thiết bị y tế
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Tiêm chủng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Bệnh & Góc sức khỏe
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Hệ thống nhà thuốc</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="/">
+                <i class="fas fa-home"></i>
+                Trang chủ
+            </a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="/danh-muc/cham-soc-ca-nhan">Chăm sóc cá nhân</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Nước súc miệng khang khuẩn Pearlie White Fluorinze (Chai 750ml)</span>
+        </div>
+    </div>
+    <main class="product-detail-page">
+        
+
+        <div class="container">
+            <div class="product-detail">
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img src="../images/products/1.webp" alt="Nước súc miệng Pearlie White">
+                        <button class="zoom-btn">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    <div class="thumbnail-list">
+                        <button class="thumb-item active">
+                            <img src="../images/products/2.webp" alt="Thumbnail 1">
+                        </button>
+                        <button class="thumb-item">
+                            <img src="../images/products/3.webp" alt="Thumbnail 2">
+                        </button>
+                        <button class="thumb-item">
+                            <img src="../images/products/4.webp" alt="Thumbnail 3">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-info">
+                    <h1 class="product-title">Nước súc miệng khang khuẩn Pearlie White Fluorinze (Chai 750ml)</h1>
+                    
+                    <div class="product-meta">
+                        <div class="sku">
+                            <span>SKU:</span> 23456789
+                        </div>
+                        <div class="brand">
+                            <span>Thương hiệu:</span>
+                            <a href="#">Pearlie White</a>
+                        </div>
+                        <div class="origin">
+                            <span>Xuất xứ:</span> Singapore
+                        </div>
+                    </div>
+
+                    <div class="product-price">
+                        <div class="price-current">165.000đ</div>
+                        <div class="price-original">184.000đ</div>
+                        <div class="price-discount">-10%</div>
+                    </div>
+
+                    <div class="product-promotion">
+                        <h3>
+                            <i class="fas fa-gift"></i>
+                            Ưu đãi
+                        </h3>
+                        <div class="promotion-list">
+                            <div class="promotion-item">
+                                <i class="fas fa-check"></i>
+                                <span>Giảm 10% cho đơn hàng từ 300.000đ</span>
+                            </div>
+                            <div class="promotion-item">
+                                <i class="fas fa-check"></i>
+                                <span>Freeship cho đơn hàng từ 300.000đ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-quantity">
+                        <span class="label">Số lượng:</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn minus">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input type="number" value="1" min="1" class="quantity-input">
+                            <button class="quantity-btn plus">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn-add-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            Thêm vào giỏ hàng
+                        </button>
+                        <button class="btn-buy-now">Mua ngay</button>
+                    </div>
+
+                    <div class="product-policy">
+                        <div class="policy-item">
+                            <i class="fas fa-truck"></i>
+                            <div class="policy-content">
+                                <h4>Giao hàng miễn phí</h4>
+                                <p>Cho đơn hàng từ 300.000đ</p>
+                            </div>
+                        </div>
+                        <div class="policy-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div class="policy-content">
+                                <h4>Cam kết chính hãng</h4>
+                                <p>100% authentic</p>
+                            </div>
+                        </div>
+                        <div class="policy-item">
+                            <i class="fas fa-exchange-alt"></i>
+                            <div class="policy-content">
+                                <h4>Đổi trả dễ dàng</h4>
+                                <p>Trong vòng 7 ngày</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="description">Mô tả sản phẩm</button>
+                    <button class="tab-btn" data-tab="specification">Thông số kỹ thuật</button>
+                    <button class="tab-btn" data-tab="reviews">Đánh giá (0)</button>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="description">
+                        <h2>Thông tin sản phẩm</h2>
+                        <div class="product-description">
+                            <h3>Công dụng</h3>
+                            <ul>
+                                <li>Giúp làm sạch khoang miệng</li>
+                                <li>Ngăn ngừa sâu răng và các bệnh nha chu</li>
+                                <li>Giúp hơi thở thơm mát</li>
+                            </ul>
+
+                            <h3>Thành phần</h3>
+                            <p>Water, Glycerin, Propylene Glycol, PEG-40 Hydrogenated Castor Oil, Sodium Fluoride...</p>
+
+                            <h3>Hướng dẫn sử dụng</h3>
+                            <p>Súc miệng với 10ml dung dịch trong 30 giây, sau đó nhổ ra. Sử dụng 2 lần/ngày sau khi đánh răng.</p>
+
+                            <h3>Lưu ý</h3>
+                            <ul>
+                                <li>Không nuốt</li>
+                                <li>Để xa tầm tay trẻ em</li>
+                                <li>Ngưng sử dụng nếu có dấu hiệu dị ứng</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="specification">
+                        <table class="spec-table">
+                            <tr>
+                                <th>Dung tích</th>
+                                <td>750ml</td>
+                            </tr>
+                            <tr>
+                                <th>Xuất xứ</th>
+                                <td>Singapore</td>
+                            </tr>
+                            <tr>
+                                <th>Thương hiệu</th>
+                                <td>Pearlie White</td>
+                            </tr>
+                            <tr>
+                                <th>Hạn sử dụng</th>
+                                <td>36 tháng kể từ ngày sản xuất</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="tab-pane" id="reviews">
+                        <div class="review-summary">
+                            <div class="rating-average">
+                                <div class="rating-number">0</div>
+                                <div class="rating-stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <div class="rating-count">0 đánh giá</div>
+                            </div>
+                        </div>
+
+                        <div class="review-form">
+                            <h3>Viết đánh giá của bạn</h3>
+                            <form>
+                                <div class="form-group">
+                                    <label>Đánh giá của bạn</label>
+                                    <div class="rating-input">
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nhận xét của bạn</label>
+                                    <textarea placeholder="Viết nhận xét của bạn về sản phẩm"></textarea>
+                                </div>
+                                <button type="submit" class="btn-submit-review">Gửi đánh giá</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="related-products">
+                <h2>Sản phẩm tương tự</h2>
+                <div class="product-list">
+                    <!-- Related products will be added here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Existing footer code -->
+    </footer>
+</body>
+
+</html> 
