@@ -15,7 +15,7 @@
         <div class="main-header">
             <div class="container">
                 <a href="/" class="logo" style="display: block; text-align: center;">
-                    <img src="images/banners/logo_default_web_78584a5cc6.png" alt="Long Châu"
+                    <img src="../images/banners/logo_default_web_78584a5cc6.png" alt="Long Châu"
                         style="width: 200px; height: auto; color: white;">
                 </a>
                 <button class="mobile-menu-toggle">
@@ -27,10 +27,46 @@
                     <i class="fas fa-camera camera-search"></i>
                 </div>
                 <div class="user-actions">
-                    <a href="#" onclick="openLoginModal(); return false;">
+                    <a href="#" class="auth-button" onclick="openLoginModal(); return false;">
                         <i class="fas fa-user"></i>
                         <span>Đăng nhập</span>
                     </a>
+                    <div class="user-menu" style="display: none;">
+                        <a href="#" class="auth-button" id="userMenuToggle" onclick="handleAuthClick(event)">
+                            <i class="fas fa-user"></i>
+                            <span id="userStatus">Đăng nhập</span>
+                        </a>
+                        <div class="user-menu-dropdown" id="userMenuDropdown">
+                            <a href="/pages/profile.html" class="user-menu-item">
+                                <i class="fas fa-user-circle"></i>
+                                Thông tin cá nhân
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-box"></i>
+                                Đơn hàng của tôi
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Sổ địa chỉ nhận hàng
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-syringe"></i>
+                                Lịch hẹn tiêm chủng
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-file-medical"></i>
+                                Đơn hàng tiêm chủng
+                            </a>
+                            <a href="#" class="user-menu-item">
+                                <i class="fas fa-prescription-bottle-alt"></i>
+                                Đơn thuốc của tôi
+                            </a>
+                            <a href="#" class="user-menu-item" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Đăng xuất
+                            </a>
+                        </div>
+                    </div>
                     <a href="/pages/cart.html" class="cart-icon">
                         <i class="fas fa-shopping-cart"></i>
                         <span>Giỏ hàng</span>
@@ -84,39 +120,40 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/pages/articles.html" class="nav-link">
+                        <a href="/pages/products.html" class="nav-link">
                             Thuốc
                             <i class="fas fa-chevron-down"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="/pages/articles.html" class="nav-link">
                             Chăm sóc cá nhân
                             <i class="fas fa-chevron-down"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="/pages/articles.html" class="nav-link">
                             Thiết bị y tế
                             <i class="fas fa-chevron-down"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Tiêm chủng</a>
+                        <a href="/pages/articles.html" class="nav-link">Tiêm chủng</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="/pages/articles.html" class="nav-link">
                             Bệnh & Góc sức khỏe
                             <i class="fas fa-chevron-down"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Hệ thống nhà thuốc</a>
+                        <a href="/pages/articles.html" class="nav-link">Hệ thống nhà thuốc</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
+
     <div class="breadcrumb">
         <div class="container">
             <a href="/">Trang chủ</a> / <span>Danh sách sản phẩm</span>
