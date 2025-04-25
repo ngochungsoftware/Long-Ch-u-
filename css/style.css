@@ -2408,4 +2408,114 @@ footer {
         width: 120px;
         height: 120px;
     }
+}
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.mobile-menu-close {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Responsive Navigation */
+@media screen and (max-width: 1024px) {
+    .main-header .container {
+        justify-content: space-between;
+    }
+
+    .search-bar {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: #fff;
+        z-index: 1000;
+        transition: left 0.3s ease;
+        overflow-y: auto;
+    }
+
+    .main-nav.active {
+        left: 0;
+    }
+
+    .mobile-menu-close {
+        display: block;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        padding: 20px;
+        margin-top: 40px;
+    }
+
+    .nav-item {
+        width: 100%;
+        margin: 0;
+    }
+
+    .nav-link {
+        padding: 15px 0;
+        display: block;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+    }
+
+    .submenu {
+        padding: 0 15px;
+    }
+
+    .submenu-item {
+        padding: 10px 0;
+    }
+
+    .quick-links {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .user-actions a span {
+        display: none;
+    }
+
+    .user-actions a i {
+        font-size: 20px;
+    }
+
+    .cart-count {
+        top: -5px;
+        right: -5px;
+    }
 } 

@@ -14,6 +14,9 @@
                 <a href="/" class="logo">
                     <img src="images/banners/Logo-Long-Chau.png" alt="Long Châu">
                 </a>
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <div class="search-bar">
                     <input type="text" placeholder="Giao hàng nhanh trong 2h">
                     <i class="fas fa-microphone voice-search"></i>
@@ -44,6 +47,9 @@
         </div>
         <nav class="main-nav">
             <div class="container">
+                <button class="mobile-menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
                 <ul class="nav-list">
                     <li class="nav-item">
                         <a href="#" class="nav-link">
@@ -401,6 +407,31 @@
     </div>
 
     <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const mainNav = document.querySelector('.main-nav');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mainNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (mainNav.classList.contains('active') && 
+                !e.target.closest('.main-nav') && 
+                !e.target.closest('.mobile-menu-toggle')) {
+                mainNav.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
         // Modal functions
         function openLoginModal() {
             const modal = document.getElementById('loginModal');
