@@ -383,10 +383,27 @@
         function updateQuantity(btn, change) {
             const input = btn.parentElement.querySelector('.quantity-input');
             let value = parseInt(input.value) + change;
+            const cartItem = btn.closest('.cart-item');
+            const productId = parseInt(cartItem.dataset.productId);
 
             // Ensure value is within valid range
             value = Math.max(1, Math.min(99, value));
             input.value = value;
+
+            // Update localStorage
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity = value;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                
+                // Update cart count in header
+                const cartCount = document.querySelector('.cart-count');
+                if (cartCount) {
+                    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                    cartCount.textContent = totalItems;
+                }
+            }
 
             updateTotals();
         }
@@ -426,8 +443,36 @@
         function removeItem(btn) {
             if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
                 const cartItem = btn.closest('.cart-item');
+                const productId = parseInt(cartItem.dataset.productId);
+
+                // Remove from localStorage
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const newCart = cart.filter(item => item.id !== productId);
+                localStorage.setItem('cart', JSON.stringify(newCart));
+
+                // Update cart count in header
+                const cartCount = document.querySelector('.cart-count');
+                if (cartCount) {
+                    const totalItems = newCart.reduce((sum, item) => sum + item.quantity, 0);
+                    cartCount.textContent = totalItems;
+                }
+
                 cartItem.remove();
                 updateSelection();
+
+                // If cart is empty, show empty state
+                if (newCart.length === 0) {
+                    const cartItems = document.querySelector('.cart-items');
+                    if (cartItems) {
+                        cartItems.innerHTML = `
+                            <div class="empty-cart" style="text-align: center; padding: 40px;">
+                                <i class="fas fa-shopping-cart" style="font-size: 48px; color: #ddd; margin-bottom: 15px;"></i>
+                                <p>Giỏ hàng của bạn đang trống</p>
+                                <a href="/" class="btn-continue" style="display: inline-block; padding: 10px 20px; background: #4CAF50; color: white; text-decoration: none; border-radius: 4px; margin-top: 15px;">Tiếp tục mua sắm</a>
+                            </div>
+                        `;
+                    }
+                }
             }
         }
 
@@ -440,15 +485,10 @@
         }
 
         function selectCoupon(element, code) {
-            // Remove selected class from all items
             document.querySelectorAll('.coupon-item').forEach(item => {
                 item.classList.remove('selected');
             });
-
-            // Add selected class to clicked item
             element.classList.add('selected');
-
-            // Check the radio button
             element.querySelector('.coupon-radio').checked = true;
         }
 
@@ -459,7 +499,6 @@
                 const subtotal = parseInt(document.querySelector('.summary-value').textContent.replace(/\D/g, ''));
                 let discount = 0;
 
-                // Calculate discount based on coupon code
                 switch (code) {
                     case 'WELCOME20':
                         discount = Math.floor(subtotal * 0.2);
@@ -470,23 +509,75 @@
                         }
                         break;
                     case 'FREESHIP':
-                        // Update shipping fee if implemented
                         break;
                 }
 
-                // Update discount display
                 document.querySelector('.discount-value').textContent = '-' + discount.toLocaleString('vi-VN') + 'đ';
-
-                // Update total
                 const total = subtotal - discount;
                 document.querySelector('.total-value').textContent = total.toLocaleString('vi-VN') + 'đ';
             }
-
             closeDiscountModal();
         }
 
-        // Initialize the cart
-        updateSelection();
+        // Initialize cart from localStorage
+        function initializeCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.querySelector('.cart-items');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="empty-cart" style="text-align: center; padding: 40px;">
+                        <i class="fas fa-shopping-cart" style="font-size: 48px; color: #ddd; margin-bottom: 15px;"></i>
+                        <p>Giỏ hàng của bạn đang trống</p>
+                        <a href="/" class="btn-continue" style="display: inline-block; padding: 10px 20px; background: #4CAF50; color: white; text-decoration: none; border-radius: 4px; margin-top: 15px;">Tiếp tục mua sắm</a>
+                    </div>
+                `;
+                return;
+            }
+
+            cartItemsContainer.innerHTML = cart.map(item => `
+                <div class="cart-item" data-product-id="${item.id}">
+                    <div class="item-checkbox">
+                        <input type="checkbox" class="item-select" onchange="updateSelection()">
+                    </div>
+                    <img src="${item.image}" alt="${item.name}" class="item-image">
+                    <div class="item-info">
+                        <a href="#" class="item-name">${item.name}</a>
+                        <div class="item-price">
+                            <span class="current-price">${item.price.toLocaleString('vi-VN')}đ</span>
+                        </div>
+                    </div>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                        <input type="number" class="quantity-input" value="${item.quantity}" min="1" max="99"
+                            onchange="updateItemTotal(this)">
+                        <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                    </div>
+                    <div class="unit-select">
+                        <select>
+                            <option>${item.unit}</option>
+                        </select>
+                    </div>
+                    <button class="delete-btn" onclick="removeItem(this)">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+
+            // Update cart count in header
+            const cartCount = document.querySelector('.cart-count');
+            if (cartCount) {
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCount.textContent = totalItems;
+            }
+
+            // Update selection count
+            document.querySelector('.select-all span').textContent = `Chọn tất cả (${cart.length})`;
+            updateSelection();
+        }
+
+        // Initialize the cart when page loads
+        document.addEventListener('DOMContentLoaded', initializeCart);
     </script>
 </body>
 
