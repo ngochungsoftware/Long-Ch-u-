@@ -9,6 +9,7 @@
     <link rel="icon" href="../images/banners/care-plus-pharmacy-logo_11109589.png!w700wp" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="../css/cart.css">
 </head>
 
 <body>
@@ -191,7 +192,7 @@
                     </div>
                 </div>
 
-                <div class="product-info">
+                <div class="product-info" data-product-id="1">
                     <h1 class="product-title">Nước súc miệng khang khuẩn Pearlie White Fluorinze (Chai 750ml)</h1>
                     
                     <div class="product-meta">
@@ -382,6 +383,54 @@
     <footer>
         <!-- Existing footer code -->
     </footer>
+    <script src="../js/slideshow.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productInfo = document.querySelector('.product-info');
+            const quantityInput = document.querySelector('.quantity-input');
+            const minusBtn = document.querySelector('.quantity-btn.minus');
+            const plusBtn = document.querySelector('.quantity-btn.plus');
+            const addToCartBtn = document.querySelector('.btn-add-cart');
+
+            // Quantity controls
+            minusBtn.addEventListener('click', () => {
+                let value = parseInt(quantityInput.value);
+                if (value > 1) {
+                    quantityInput.value = value - 1;
+                }
+            });
+
+            plusBtn.addEventListener('click', () => {
+                let value = parseInt(quantityInput.value);
+                quantityInput.value = value + 1;
+            });
+
+            // Add to cart
+            addToCartBtn.addEventListener('click', () => {
+                const product = {
+                    id: productInfo.dataset.productId,
+                    name: document.querySelector('.product-title').textContent,
+                    price: parseFloat(document.querySelector('.price-current').textContent.replace('đ', '').replace(/\./g, '')),
+                    image: document.querySelector('.main-image img').src,
+                    quantity: parseInt(quantityInput.value)
+                };
+
+                // Add to cart
+                cart.addItem(product);
+
+                // Show notification
+                const notification = document.createElement('div');
+                notification.className = 'cart-notification';
+                notification.textContent = 'Đã thêm sản phẩm vào giỏ hàng';
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.remove();
+                }, 2000);
+            });
+        });
+    </script>
 </body>
 
 </html> 

@@ -3416,7 +3416,7 @@ input:checked + .slider:before {
 }
 
 .product-title {
-    font-size: 24px;
+    font-size: 10px;
     color: #333;
     margin-bottom: 16px;
     line-height: 1.4;

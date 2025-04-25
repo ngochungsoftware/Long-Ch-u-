@@ -9,6 +9,8 @@
     <link rel="icon" href="images/banners/care-plus-pharmacy-logo_11109589.png!w700wp" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/search.css">
 </head>
 
 <body>
@@ -121,7 +123,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/pages/articles.html" class="nav-link">
+                        <a href="/pages/products.html" class="nav-link">
                             Thuốc
                             <i class="fas fa-chevron-down"></i>
                         </a>
@@ -230,7 +232,7 @@
             <section class="best-selling">
                 <h2>Sản phẩm bán chạy</h2>
                 <div class="product-list">
-                    <a href="/pages/product-detail.html" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card" data-product-id="1">
                         <span class="discount-badge">-19.000đ</span>
                         <img class="product-image" src="/images/products/1.webp" alt="Hỗn dịch uống men vi sinh">
                         <div class="product-info">
@@ -242,7 +244,7 @@
                         </div>
                         <button class="btn-buy">Chọn mua</button>
                     </a>
-                    <a href="/pages/product-detail.html" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card" data-product-id="2">
                         <span class="discount-badge">-20%</span>
                         <img class="product-image" src="/images/products/2.webp" alt="Nước súc miệng">
                         <div class="product-info">
@@ -254,7 +256,7 @@
                         </div>
                         <button class="btn-buy">Chọn mua</button>
                     </a>
-                    <a href="/pages/product-detail.html" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card" data-product-id="3">
                         <span class="discount-badge">-20%</span>
                         <img class="product-image" src="/images/products/3.webp" alt="Viên uống Lutein">
                         <div class="product-info">
@@ -265,7 +267,7 @@
                         </div>
                         <button class="btn-buy">Chọn mua</button>
                     </a>
-                    <a href="/pages/product-detail.html" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card" data-product-id="4">
                         <span class="discount-badge">-105.000đ</span>
                         <img class="product-image" src="/images/products/4.webp" alt="Máy xông khí dung">
                         <div class="product-info">
@@ -276,7 +278,7 @@
                         </div>
                         <button class="btn-buy">Chọn mua</button>
                     </a>
-                    <a href="/pages/product-detail.html" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card" data-product-id="5">
                         <span class="discount-badge">-20%</span>
                         <img class="product-image" src="/images/products/5.webp" alt="Siro Brauer Baby">
                         <div class="product-info">
@@ -288,7 +290,7 @@
                         </div>
                         <button class="btn-buy">Chọn mua</button>
                     </a>
-                    <a href="/pages/product-detail.html" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card" data-product-id="6">
                         <span class="discount-badge">-25%</span>
                         <img class="product-image" src="/images/products/6.webp" alt="Thực phẩm bảo vệ sức khỏe">
                         <div class="product-info">
@@ -299,7 +301,7 @@
                         </div>
                         <button class="btn-buy">Chọn mua</button>
                     </a>
-                    <a href="/pages/product-detail.html" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card" data-product-id="7">
                         <span class="discount-badge">-25%</span>
                         <img class="product-image" src="/images/products/7.webp" alt="Thực phẩm bảo vệ sức khỏe">
                         <div class="product-info">
@@ -310,7 +312,7 @@
                         </div>
                         <button class="btn-buy">Chọn mua</button>
                     </a>
-                    <a href="/pages/product-detail.html" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card" data-product-id="8">
                         <span class="discount-badge">-25%</span>
                         <img class="product-image" src="/images/products/8.webp" alt="Thực phẩm bảo vệ sức khỏe">
                         <div class="product-info">
@@ -321,7 +323,7 @@
                         </div>
                         <button class="btn-buy">Chọn mua</button>
                     </a>
-                    <a href="/pages/product-detail.html" class="product-card">
+                    <a href="/pages/product-detail.html" class="product-card" data-product-id="9">
                         <span class="discount-badge">-25%</span>
                         <img class="product-image" src="/images/products/9.webp" alt="Thực phẩm bảo vệ sức khỏe">
                         <div class="product-info">
@@ -376,6 +378,8 @@
     </footer>
 
     <script src="js/slideshow.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/search.js"></script>
 
     <!-- Login/Register Modal -->
     <div id="authModal" class="modal">
