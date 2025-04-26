@@ -624,6 +624,9 @@
             userMenu.style.display = 'block';
             userMenuToggle.classList.add('logged-in');
             closeAuthModal();
+            
+            // Show success notification
+            showNotification('Đăng nhập thành công!');
         });
 
         registerForm.addEventListener('submit', function (e) {
@@ -644,7 +647,28 @@
             userMenu.style.display = 'block';
             userMenuToggle.classList.add('logged-in');
             closeAuthModal();
+            
+            // Show success notification
+            showNotification('Đăng ký thành công!');
         });
+
+        // Notification functionality
+        function showNotification(message) {
+            const notification = document.getElementById('notificationPopup');
+            const messageElement = document.getElementById('notificationMessage');
+            
+            messageElement.textContent = message;
+            notification.style.display = 'block';
+            
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.5s ease-out';
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                    notification.style.animation = 'slideIn 0.5s ease-out';
+                }, 500);
+            }, 3000);
+        }
 
         // Logout functionality
         logoutBtn.addEventListener('click', function (e) {
@@ -656,6 +680,14 @@
             userMenuDropdown.classList.remove('active');
         });
     </script>
+
+    <!-- Notification Popup -->
+    <div id="notificationPopup" class="notification-popup">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <p id="notificationMessage"></p>
+        </div>
+    </div>
 </body>
 
 </html>
