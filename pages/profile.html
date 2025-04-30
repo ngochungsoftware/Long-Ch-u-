@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nhà Thuốc Long Châu</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="icon" href="/images/banners/care-plus-pharmacy-logo_11109589.png!w700wp" type="image/png">
+    <link rel="icon" href="../images/banners/care-plus-pharmacy-logo_11109589.png!w700wp" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="../css/modal.css">
 </head>
 
 <body>
@@ -38,7 +38,7 @@
                             <span id="userStatus">Đăng nhập</span>
                         </a>
                         <div class="user-menu-dropdown" id="userMenuDropdown">
-                            <a href="/pages/profile.html" class="user-menu-item">
+                            <a href="profile.html" class="user-menu-item">
                                 <i class="fas fa-user-circle"></i>
                                 Thông tin cá nhân
                             </a>
@@ -169,8 +169,8 @@
                         <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="user-details">
-                        <h3>Lê Ngọc Hưng</h3>
-                        <p>+84 123456789</p>
+                        <h3></h3>
+                        <p></p>
                     </div>
                 </div>
                 <nav class="profile-nav">
@@ -209,7 +209,7 @@
                     <form id="profileForm">
                         <div class="form-group">
                             <label>Họ và tên</label>
-                            <input type="text" value="Lê Ngọc Hưng" placeholder="Nhập họ và tên">
+                            <input type="text" id="profileName" value="" placeholder="Nhập họ và tên">
                         </div>
                         <div class="form-group">
                             <label>Số điện thoại</label>
@@ -282,13 +282,16 @@
             </div>
         </div>
     </footer>
-    <script>
-        document.getElementById('profileForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            // Xử lý lưu thông tin
-            alert('Đã lưu thông tin thành công!');
-        });
-    </script>
+
+    <!-- Notification Popup -->
+    <div class="notification-popup" id="notificationPopup">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationMessage"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/auth.js"></script>
+    <script src="../js/profile.js"></script>
 </body>
 
 </html>

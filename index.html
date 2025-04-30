@@ -30,17 +30,17 @@
                     <i class="fas fa-camera camera-search"></i>
                 </div>
                 <div class="user-actions">
-                    <a href="#" class="auth-button" onclick="openLoginModal(); return false;">
+                    <a href="#" class="auth-button" id="loginButton">
                         <i class="fas fa-user"></i>
                         <span>Đăng nhập</span>
                     </a>
                     <div class="user-menu" style="display: none;">
-                        <a href="#" class="auth-button" id="userMenuToggle" onclick="handleAuthClick(event)">
+                        <a href="#" class="auth-button" id="userMenuToggle">
                             <i class="fas fa-user"></i>
                             <span id="userStatus">Đăng nhập</span>
                         </a>
                         <div class="user-menu-dropdown" id="userMenuDropdown">
-                            <a href="/pages/profile.html" class="user-menu-item">
+                            <a href="pages/profile.html" class="user-menu-item">
                                 <i class="fas fa-user-circle"></i>
                                 Thông tin cá nhân
                             </a>
@@ -377,50 +377,41 @@
         </div>
     </footer>
 
-    <script src="js/slideshow.js"></script>
-    <script src="js/cart.js"></script>
-    <script src="js/search.js"></script>
-
-    <!-- Login/Register Modal -->
-    <div id="authModal" class="modal">
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
         <div class="modal-container">
             <div class="modal-header">
-                <h2 class="modal-title" id="modalTitle">Đăng nhập</h2>
-                <button class="modal-close" onclick="closeAuthModal()">
+                <h2 class="modal-title">Đăng nhập</h2>
+                <button class="modal-close" id="closeLoginModal">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="loginForm" class="auth-form">
+                <form id="loginForm">
                     <div class="form-group">
-                        <label for="loginPhone">Số điện thoại</label>
+                        <label for="email">Email</label>
                         <div class="input-group">
-                            <span class="country-code">+84</span>
-                            <input type="tel" id="loginPhone" name="phone" placeholder="Nhập số điện thoại" required>
+                            <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required>
                         </div>
                     </div>
-
                     <div class="form-group">
-                        <label for="loginPassword">Mật khẩu</label>
+                        <label for="password">Mật khẩu</label>
                         <div class="input-group">
-                            <input type="password" id="loginPassword" name="password" placeholder="Nhập mật khẩu"
-                                required>
-                            <button type="button" class="toggle-password">
+                            <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
+                            <button type="button" class="toggle-password" id="togglePassword">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
                     </div>
-
+                    <div class="error-message" id="errorMessage"></div>
                     <div class="form-actions">
-                        <label class="remember-me">
-                            <input type="checkbox" name="remember">
-                            <span>Ghi nhớ đăng nhập</span>
-                        </label>
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember">Ghi nhớ đăng nhập</label>
+                        </div>
                         <a href="#" class="forgot-password">Quên mật khẩu?</a>
                     </div>
-
                     <button type="submit" class="login-btn">Đăng nhập</button>
-
                     <div class="social-login">
                         <p>Hoặc đăng nhập bằng</p>
                         <div class="social-buttons">
@@ -434,52 +425,76 @@
                             </button>
                         </div>
                     </div>
-
                     <div class="register-link">
-                        Bạn chưa có tài khoản?
-                        <a href="#" onclick="switchToRegister(); return false;">Đăng ký ngay</a>
+                        Chưa có tài khoản? <a href="#" id="openRegisterModal">Đăng ký ngay</a>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
 
-                <form id="registerForm" class="auth-form" style="display: none;">
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title">Đăng ký tài khoản</h2>
+                <button class="modal-close" id="closeRegisterModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
                     <div class="form-group">
                         <label for="registerName">Họ và tên</label>
-                        <input type="text" id="registerName" name="name" placeholder="Nhập họ và tên" required>
+                        <div class="input-group">
+                            <input type="text" id="registerName" name="name" placeholder="Nhập họ và tên" required>
+                        </div>
                     </div>
-
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <div class="input-group">
+                            <input type="email" id="registerEmail" name="email" placeholder="Nhập email của bạn" required>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="registerPhone">Số điện thoại</label>
                         <div class="input-group">
-                            <span class="country-code">+84</span>
                             <input type="tel" id="registerPhone" name="phone" placeholder="Nhập số điện thoại" required>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label for="registerPassword">Mật khẩu</label>
                         <div class="input-group">
-                            <input type="password" id="registerPassword" name="password" placeholder="Nhập mật khẩu"
-                                required>
-                            <button type="button" class="toggle-password">
+                            <input type="password" id="registerPassword" name="password" placeholder="Nhập mật khẩu" required>
+                            <button type="button" class="toggle-password" id="toggleRegisterPassword">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
                     </div>
-
                     <div class="form-group">
-                        <label for="registerConfirmPassword">Xác nhận mật khẩu</label>
+                        <label for="confirmPassword">Xác nhận mật khẩu</label>
                         <div class="input-group">
-                            <input type="password" id="registerConfirmPassword" name="confirmPassword"
-                                placeholder="Nhập lại mật khẩu" required>
-                            <button type="button" class="toggle-password">
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Nhập lại mật khẩu" required>
+                            <button type="button" class="toggle-password" id="toggleConfirmPassword">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
                     </div>
-
-                    <button type="submit" class="login-btn">Đăng ký</button>
-
-                    <div class="social-login">
+                    <div class="form-group">
+                        <label for="registerBirthDate">Ngày sinh</label>
+                        <div class="input-group">
+                            <input type="date" id="registerBirthDate" name="birthDate" required>
+                        </div>
+                    </div>
+                    <div class="error-message" id="registerErrorMessage"></div>
+                    <div class="form-actions">
+                        <div class="terms-agreement">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">Tôi đồng ý với <a href="#">Điều khoản sử dụng</a> và <a href="#">Chính sách bảo mật</a></label>
+                        </div>
+                    </div>
+                    <button type="submit" class="register-btn">Đăng ký</button>
+                    <div class="social-register">
                         <p>Hoặc đăng ký bằng</p>
                         <div class="social-buttons">
                             <button type="button" class="social-btn facebook">
@@ -492,15 +507,27 @@
                             </button>
                         </div>
                     </div>
-
-                    <div class="register-link">
-                        Đã có tài khoản?
-                        <a href="#" onclick="switchToLogin(); return false;">Đăng nhập</a>
+                    <div class="login-link">
+                        Đã có tài khoản? <a href="#" id="openLoginModal">Đăng nhập</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+    <!-- Notification Popup -->
+    <div class="notification-popup" id="notificationPopup">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="notificationMessage"></span>
+        </div>
+    </div>
+
+    <script src="js/slideshow.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
 
     <script>
         // Mobile Menu Toggle
@@ -527,167 +554,7 @@
                 document.body.style.overflow = '';
             }
         });
-
-        // Auth modal functionality
-        const authModal = document.getElementById('authModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const loginForm = document.getElementById('loginForm');
-        const registerForm = document.getElementById('registerForm');
-        const userMenu = document.querySelector('.user-menu');
-        const loginButton = document.querySelector('.auth-button:not(#userMenuToggle)');
-        const userMenuToggle = document.getElementById('userMenuToggle');
-        const userMenuDropdown = document.getElementById('userMenuDropdown');
-        const userStatus = document.getElementById('userStatus');
-        const logoutBtn = document.getElementById('logoutBtn');
-
-        // Handle auth button click
-        function handleAuthClick(e) {
-            e.preventDefault();
-            if (userStatus.textContent !== 'Đăng nhập') {
-                userMenuDropdown.classList.toggle('active');
-            } else {
-                openLoginModal();
-            }
-        }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.user-menu')) {
-                userMenuDropdown.classList.remove('active');
-            }
-        });
-
-        function openLoginModal() {
-            authModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            switchToLogin();
-        }
-
-        function closeAuthModal() {
-            authModal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function switchToLogin() {
-            modalTitle.textContent = 'Đăng nhập';
-            loginForm.style.display = 'block';
-            registerForm.style.display = 'none';
-        }
-
-        function switchToRegister() {
-            modalTitle.textContent = 'Đăng ký';
-            loginForm.style.display = 'none';
-            registerForm.style.display = 'block';
-        }
-
-        // Close modal when clicking outside
-        authModal.addEventListener('click', function (event) {
-            if (event.target === this) {
-                closeAuthModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape') {
-                closeAuthModal();
-            }
-        });
-
-        // Toggle password visibility
-        document.querySelectorAll('.toggle-password').forEach(button => {
-            button.addEventListener('click', function () {
-                const input = this.previousElementSibling;
-                const icon = this.querySelector('i');
-
-                if (input.type === 'password') {
-                    input.type = 'text';
-                    icon.classList.remove('fa-eye');
-                    icon.classList.add('fa-eye-slash');
-                } else {
-                    input.type = 'password';
-                    icon.classList.remove('fa-eye-slash');
-                    icon.classList.add('fa-eye');
-                }
-            });
-        });
-
-        // Form submission
-        loginForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const phone = document.getElementById('loginPhone').value;
-            const password = document.getElementById('loginPassword').value;
-
-            // Simulate successful login
-            userStatus.textContent = 'Lê Ngọc Hưng';
-            loginButton.style.display = 'none';
-            userMenu.style.display = 'block';
-            userMenuToggle.classList.add('logged-in');
-            closeAuthModal();
-            
-            // Show success notification
-            showNotification('Đăng nhập thành công!');
-        });
-
-        registerForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const name = document.getElementById('registerName').value;
-            const phone = document.getElementById('registerPhone').value;
-            const password = document.getElementById('registerPassword').value;
-            const confirmPassword = document.getElementById('registerConfirmPassword').value;
-
-            if (password !== confirmPassword) {
-                alert('Mật khẩu xác nhận không khớp!');
-                return;
-            }
-
-            // Simulate successful registration
-            userStatus.textContent = name;
-            loginButton.style.display = 'none';
-            userMenu.style.display = 'block';
-            userMenuToggle.classList.add('logged-in');
-            closeAuthModal();
-            
-            // Show success notification
-            showNotification('Đăng ký thành công!');
-        });
-
-        // Notification functionality
-        function showNotification(message) {
-            const notification = document.getElementById('notificationPopup');
-            const messageElement = document.getElementById('notificationMessage');
-            
-            messageElement.textContent = message;
-            notification.style.display = 'block';
-            
-            // Hide notification after 3 seconds
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.5s ease-out';
-                setTimeout(() => {
-                    notification.style.display = 'none';
-                    notification.style.animation = 'slideIn 0.5s ease-out';
-                }, 500);
-            }, 3000);
-        }
-
-        // Logout functionality
-        logoutBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            userStatus.textContent = 'Đăng nhập';
-            loginButton.style.display = 'block';
-            userMenu.style.display = 'none';
-            userMenuToggle.classList.remove('logged-in');
-            userMenuDropdown.classList.remove('active');
-        });
     </script>
-
-    <!-- Notification Popup -->
-    <div id="notificationPopup" class="notification-popup">
-        <div class="notification-content">
-            <i class="fas fa-check-circle"></i>
-            <p id="notificationMessage"></p>
-        </div>
-    </div>
 </body>
 
 </html>
