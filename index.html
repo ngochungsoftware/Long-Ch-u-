@@ -515,6 +515,33 @@
         </div>
     </div>
 
+    <!-- Forgot Password Modal -->
+    <div class="modal" id="forgotPasswordModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title">Quên mật khẩu</h2>
+                <button class="modal-close" id="closeForgotPasswordModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="forgotPasswordForm">
+                    <div class="form-group">
+                        <label for="forgotEmail">Email</label>
+                        <div class="input-group">
+                            <input type="email" id="forgotEmail" name="email" placeholder="Nhập email của bạn" required>
+                        </div>
+                    </div>
+                    <div class="error-message" id="forgotPasswordErrorMessage"></div>
+                    <button type="submit" class="login-btn">Gửi yêu cầu</button>
+                    <div class="register-link">
+                        <a href="#" id="backToLogin">Quay lại đăng nhập</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Notification Popup -->
     <div class="notification-popup" id="notificationPopup">
         <div class="notification-content">

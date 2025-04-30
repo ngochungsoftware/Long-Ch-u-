@@ -23,6 +23,12 @@ const auth = (function() {
     const registerPasswordInput = document.getElementById('registerPassword');
     const confirmPasswordInput = document.getElementById('confirmPassword');
     const openLoginModal = document.getElementById('openLoginModal');
+    const forgotPasswordLink = document.querySelector('.forgot-password');
+    const forgotPasswordModal = document.getElementById('forgotPasswordModal');
+    const closeForgotPasswordModal = document.getElementById('closeForgotPasswordModal');
+    const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+    const forgotPasswordErrorMessage = document.getElementById('forgotPasswordErrorMessage');
+    const backToLogin = document.getElementById('backToLogin');
 
     // State
     let isLoggedIn = false;
@@ -48,6 +54,12 @@ const auth = (function() {
         toggleConfirmPassword.addEventListener('click', () => togglePasswordVisibility(confirmPasswordInput, toggleConfirmPassword));
         openLoginModal.addEventListener('click', openLoginModalHandler);
 
+        // Forgot Password Modal
+        forgotPasswordLink.addEventListener('click', openForgotPasswordModalHandler);
+        closeForgotPasswordModal.addEventListener('click', closeForgotPasswordModalHandler);
+        forgotPasswordForm.addEventListener('submit', handleForgotPassword);
+        backToLogin.addEventListener('click', backToLoginHandler);
+
         // Close modals and dropdowns when clicking outside
         window.addEventListener('click', (e) => {
             if (e.target === loginModal) {
@@ -55,6 +67,9 @@ const auth = (function() {
             }
             if (e.target === registerModal) {
                 closeRegisterModalHandler();
+            }
+            if (e.target === forgotPasswordModal) {
+                closeForgotPasswordModalHandler();
             }
             if (!e.target.closest('.user-menu') && userMenuDropdown.classList.contains('active')) {
                 userMenuDropdown.classList.remove('active');
@@ -105,6 +120,26 @@ const auth = (function() {
     function openLoginModalHandler(e) {
         e.preventDefault();
         closeRegisterModalHandler();
+        openModal();
+    }
+
+    function openForgotPasswordModalHandler(e) {
+        e.preventDefault();
+        closeModal();
+        forgotPasswordModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeForgotPasswordModalHandler() {
+        forgotPasswordModal.classList.remove('active');
+        document.body.style.overflow = '';
+        forgotPasswordErrorMessage.textContent = '';
+        forgotPasswordForm.reset();
+    }
+
+    function backToLoginHandler(e) {
+        e.preventDefault();
+        closeForgotPasswordModalHandler();
         openModal();
     }
 
@@ -226,6 +261,27 @@ const auth = (function() {
         showNotification('Đăng xuất thành công!');
     }
 
+    function handleForgotPassword(e) {
+        e.preventDefault();
+        const email = document.getElementById('forgotEmail').value;
+
+        // Validate email format
+        if (!isValidEmail(email)) {
+            forgotPasswordErrorMessage.textContent = 'Email không hợp lệ';
+            return;
+        }
+
+        // Simulate API call
+        simulateForgotPassword(email)
+            .then(() => {
+                closeForgotPasswordModalHandler();
+                showNotification('Yêu cầu đặt lại mật khẩu đã được gửi đến email của bạn');
+            })
+            .catch(error => {
+                forgotPasswordErrorMessage.textContent = error;
+            });
+    }
+
     // Validation Functions
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -321,6 +377,24 @@ const auth = (function() {
                 // Set as current user
                 localStorage.setItem('currentUser', JSON.stringify(newUser));
                 resolve(newUser);
+            }, 1000);
+        });
+    }
+
+    function simulateForgotPassword(email) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                // Get users array from localStorage
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                const user = users.find(u => u.email === email);
+                
+                if (user) {
+                    // In a real application, you would send an email with a reset link
+                    // For this demo, we'll just simulate success
+                    resolve();
+                } else {
+                    reject('Email không tồn tại trong hệ thống');
+                }
             }, 1000);
         });
     }
